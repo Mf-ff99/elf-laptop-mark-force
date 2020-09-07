@@ -1,22 +1,15 @@
-import React, {Component} from 'react';
+import React from "react";
+import Total from "./Total";
+import Selection from "./Product";
 
-class Summary extends Component {
-  render () {
-    return (
-      Object.keys(this.props.selected).map(key => {
-        return(
-          <div className="summary__option" key={key}>
-            <div className="summary__option__label">{key}</div>
-            <div className="summary__option__value">{this.props.selected[key].name}</div>
-            <div className="summary__option__cost">
-              {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                .format(this.props.selected[key].cost)}
-            </div>
-          </div>
-        ) 
-      })
-    )
-  }
+export default function Summary(props) {
+  return (
+    <section className="main__summary">
+      <h2>Your cart</h2>
+      <Selection selected={props.selected} currency={props.currency} />
+      <div className="summary__total">
+        <Total selected={props.selected} currency={props.currency} />
+      </div>
+    </section>
+  );
 }
-
-export default Summary;
