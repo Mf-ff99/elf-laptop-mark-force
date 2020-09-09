@@ -6,7 +6,7 @@ import Main from "./Components/Main";
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
-import store from "./store";
+import store from "./Store";
 import "./App.css";
 
 // This object will allow us to
